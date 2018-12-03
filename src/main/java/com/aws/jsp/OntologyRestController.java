@@ -92,10 +92,10 @@ public class OntologyRestController {
         Iterator resourceIter = model.listSubjectsWithProperty(property,"Actinomycotic madura foot (disorder)");
         while (resourceIter.hasNext()) {
             Resource resource = (Resource) resourceIter.next();
-            StmtIterator stmts = resource.listProperties();
+            StmtIterator stmts = resource.listProperties(property);
             while ( stmts.hasNext() ) {
                 Statement stmt = stmts.next();
-                System.out.println(stmt);
+                list.add(stmt.getString());
             }
 
         }
